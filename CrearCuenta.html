@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends - Crear Cuenta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="CrearCuenta.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.png" alt="League of Legends Logo">
+        </div>
+        <h2 class="text-center">Crear Cuenta</h2>
+        <form onsubmit="return validateForm()">
+            <input type="text" id="username" class="form-control" placeholder="Nombre de Usuario" >
+            <input type="password" id="password" class="form-control" placeholder="Contraseña" >
+            <input type="email" id="email" class="form-control" placeholder="Correo electrónico" >
+            <div class="form-group">
+                <label for="birthdate">Fecha de Nacimiento</label>
+                <div class="d-flex justify-content-between">
+                    <input type="number" id="day" class="form-control" placeholder="Día" min="1" max="31" style="width: 30%;" required>
+                    <input type="number" id="month" class="form-control" placeholder="Mes" min="1" max="12" style="width: 30%;" required>
+                    <input type="number" id="year" class="form-control" placeholder="Año" min="1900" max="2024" style="width: 30%;" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-light"><span>→</span></button>
+            <a href="#" class="btn btn-secondary" onclick="window.history.back()">Volver atrás</a>
+        </form>
+        <div class="footer">
+            <p>&copy; 2024. Todos los derechos reservados.</p>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value;
+            const day = document.getElementById('day').value;
+            const month = document.getElementById('month').value;
+            const year = document.getElementById('year').value;
+
+            // Validación de campos vacíos
+            if (username === '' || password === '' || email === '' || day === '' || month === '' || year === '') {
+                alert('Por favor, complete todos los campos.');
+                return false;
+            }
+
+            alert('Cuenta creada con éxito.');
+            return true;
+        }
+    </script>
+</body>
+</html>
